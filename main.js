@@ -1,7 +1,7 @@
 import { Client, GatewayIntentBits } from 'discord.js'
 import 'dotenv/config'
 import messageCreate from './events/message-create.js';
-import commandManager from './helper/command.manager.js';
+import commandManager from './helper/command-manager.js';
 
 const client = new Client({
   intents: [
