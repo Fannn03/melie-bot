@@ -4,3 +4,4 @@ SERVER_PORT=
 # bot configuration
 BOT_TOKEN=
 BOT_PREFIX=
+GUILD_ID=
