@@ -2,6 +2,7 @@ import { Client, GatewayIntentBits } from 'discord.js'
 import 'dotenv/config'
 import messageCreate from './events/message-create.js';
 import commandManager from './helper/command-manager.js';
+import interactionCreate from './events/interaction-create.js';
 
 const client = new Client({
   intents: [
@@ -20,6 +21,10 @@ client.on('ready', () => {
 
 client.on('messageCreate', (message) => {
   return messageCreate(client, message)
+})
+
+client.on('interactionCreate', (interaction) => {
+  return interactionCreate(interaction)
 })
 
 client.login(process.env.BOT_TOKEN)
