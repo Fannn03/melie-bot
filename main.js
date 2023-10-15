@@ -19,7 +19,7 @@ client.on('ready', () => {
 })
 
 client.on('messageCreate', (message) => {
-  return messageCreate(message)
+  return messageCreate(client, message)
 })
 
 client.login(process.env.BOT_TOKEN)
