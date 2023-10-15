@@ -17,7 +17,6 @@ client.on('ready', () => {
   commandManager(client)
   console.log(`loaded ${client.commands.length} commands`);
   console.log('bot is ready');
-  console.log(client.commands);
 })
 
 client.on('messageCreate', (message) => {
