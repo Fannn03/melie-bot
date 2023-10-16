@@ -1,6 +1,5 @@
 import { EmbedBuilder } from 'discord.js'
 import 'dotenv/config'
-
 const env = process.env
 const cooldown = new Set()
 
@@ -9,7 +8,7 @@ export default async (client, message) => {
     const splitMessage = message.content.slice(process.env.BOT_PREFIX.length).split(" ")
     const commandName = splitMessage.shift()
     const args = splitMessage
-
+    
     for (let command of client.commands) {
       if(commandName === command.name || command.aliases.includes(commandName)) {
         if(cooldown.has(message.author.id)) return message.reply({
@@ -20,11 +19,11 @@ export default async (client, message) => {
           ]
         })
 
-        command.execute(client, message, args)
         cooldown.add(message.author.id)
-        return setTimeout(() => {
+        setTimeout(() => {
           cooldown.delete(message.author.id)
         }, 5000)
+        return command.execute(client, message, args)
       }
     }
 

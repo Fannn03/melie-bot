@@ -4,7 +4,7 @@ const fullnameInput = () => {
   return new TextInputBuilder()
     .setCustomId('fullname')
     .setLabel('Fullname')
-    .setPlaceholder('Jhon Thor')
+    .setPlaceholder('Simon Bahres')
     .setStyle(TextInputStyle.Short)
     .setRequired(true)
     .setMinLength(5)

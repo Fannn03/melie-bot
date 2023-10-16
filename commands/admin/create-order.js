@@ -5,10 +5,10 @@ import createOrderPage from "../../services/orders/create-order-page.js";
 export default {
   name: 'createorder',
   aliases: ['co'],
-  permissions: ['Moderator', 'Chief Executive Officer'],
+  permissions: ['Chief Executive Officer', 'Moderator'],
   execute: async function (client, message, args) {
     if(!message.member.roles.cache.some(role => this.permissions.includes(role.name))) {
-      return permissionMessage(message);
+      return permissionMessage(message, this.permissions);
     }
 
     try {
