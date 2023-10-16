@@ -6,6 +6,7 @@ module.exports = {
     await queryInterface.createTable('services', {
       id : {
         type: Sequelize.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
         allowNull: false
       },
@@ -18,18 +19,20 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
-      created_at: {
+      createdAt: {
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
+        defaultValue: Sequelize.NOW,
+        allowNull: false
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
+        defaultValue: Sequelize.NOW,
+        allowNull: false
       }
     })
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.delete('services')
+    await queryInterface.dropTable('services')
   }
 };

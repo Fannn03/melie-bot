@@ -5,6 +5,7 @@ export default sequelize.define('services', {
   id: {
     type: DataTypes.STRING,
     unique: true,
+    autoIncrement: true,
     primaryKey: true,
     allowNull: false
   },
@@ -16,8 +17,8 @@ export default sequelize.define('services', {
     },
     allowNull: false
   },
-  is_deleted: {
+  is_ready: {
     type: DataTypes.BOOLEAN,
-    defaultValue: false
+    defaultValue: true
   }
 })
