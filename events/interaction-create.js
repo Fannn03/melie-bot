@@ -1,10 +1,10 @@
 import { ButtonInteraction } from "discord.js"
-import createOrder from "../services/orders/create-order.js"
+import builder from "../services/orders/create/builder.js"
 
 export default async (interaction) => {
   const { customId } = interaction
 
   if(interaction instanceof ButtonInteraction) {
-    if(customId === 'builder') return createOrder(interaction)
+    if(customId === 'builder') return builder(interaction)
   }
 }

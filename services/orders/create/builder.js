@@ -1,5 +1,5 @@
 import { ModalBuilder } from 'discord.js'
-import builderForm from '../../core/forms/orders/builder.js'
+import builderForm from '../../../core/forms/orders/builder.js'
 
 export default async (interaction) => {
   const { customId } = interaction
