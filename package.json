@@ -3,9 +3,11 @@
   "dependencies": {
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
+    "mysql2": "^3.6.2",
     "sequelize": "^6.33.0"
   },
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "sequelize-cli": "^6.6.1"
   }
 }
