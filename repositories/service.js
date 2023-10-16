@@ -15,3 +15,11 @@ export const createService = async (name) => {
 export const listservice = async () => {
   return await service.findAll()
 }
+
+export const getService = async (name) => {
+  return await service.findOne({
+    where: {
+      name: name
+    }
+  })
+}
