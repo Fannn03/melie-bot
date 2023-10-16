@@ -1,5 +1,10 @@
 # server configuration
 SERVER_PORT=
+DB_DIALECT=
+DB_HOST=
+DB_USERNAME=
+DB_PASSWORD=
+DB_DATABASE=
 
 # bot configuration
 BOT_TOKEN=
