@@ -39,6 +39,7 @@ const notesInput = () => {
     .setLabel('Notes')
     .setPlaceholder('Modern Japanese ( optional )')
     .setStyle(TextInputStyle.Paragraph)
+    .setRequired(false)
 }
 
 export default () => {
