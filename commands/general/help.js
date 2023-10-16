@@ -11,7 +11,7 @@ export default {
     ${inlineCode('help')}
     
     **Services**
-    ${inlineCode('createservice')}, ${inlineCode('listservice')}
+    ${inlineCode('createservice')}, ${inlineCode('listservice')}, ${inlineCode('enableservice')}, ${inlineCode('disableservice')}
     `
 
     return message.reply({
