@@ -3,6 +3,6 @@ export default {
   aliases: ['bantuan'],
   permissions: [],
   execute: async function (client, message, args) {
-    message.reply('test help command')
+    return message.reply('test help command')
   }
 }

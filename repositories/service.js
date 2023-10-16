@@ -11,3 +11,7 @@ export const createService = async (name) => {
     throw err
   }
 }
+
+export const listservice = async () => {
+  return await service.findAll()
+}
