@@ -1,6 +1,6 @@
 import createOrder from "../commands/admin/create-order.js"
-import createService from "../commands/admin/create-service.js"
-import listService from "../commands/admin/list-service.js"
+import createService from "../commands/admin/services/create-service.js"
+import listService from "../commands/admin/services/list-service.js"
 import help from '../commands/general/help.js'
 
 export default (client) => {

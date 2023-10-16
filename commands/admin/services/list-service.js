@@ -1,6 +1,6 @@
 import { EmbedBuilder } from "discord.js";
-import permissionMessage from "../../helper/permission-message.js";
-import listService from "../../services/services/list-service.js";
+import permissionMessage from "../../../helper/permission-message.js";
+import listService from "../../../services/services/list-service.js";
 
 export default {
   name: 'listservice',

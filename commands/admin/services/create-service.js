@@ -1,7 +1,7 @@
 import { EmbedBuilder } from "discord.js";
 import 'dotenv/config'
-import permissionMessage from "../../helper/permission-message.js";
-import createService from "../../services/services/create-service.js";
+import permissionMessage from "../../../helper/permission-message.js";
+import createService from "../../../services/services/create-service.js";
 
 export default {
   name: 'createservice',
