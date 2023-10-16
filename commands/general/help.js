@@ -1,10 +1,14 @@
 import { EmbedBuilder, inlineCode } from "discord.js"
+import permissionMessage from "../../helper/permission-message.js";
 
 export default {
   name: 'help',
   aliases: ['bantuan'],
-  permissions: [],
+  permissions: ['Melie Corporation'],
   execute: async function (client, message, args) {
+    if(!message.member.roles.cache.some(role => this.permissions.includes(role.name))) {
+      return permissionMessage(message, this.permissions);
+    }
 
     const text = `
     **General**
