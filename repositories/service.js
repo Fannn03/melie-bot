@@ -5,7 +5,7 @@ const service = model.service
 export const createService = async (name) => {
   try {
     return await service.create({
-      name: name
+      name: name.toLowerCase()
     })
   } catch (err) {
     throw err
