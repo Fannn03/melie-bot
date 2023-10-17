@@ -29,3 +29,13 @@ export const countOrder = async (id) => {
     }
   })
 }
+
+export const countOrderAll = async () => {
+  return await order.findAndCountAll({
+    where: {
+      status: {
+        [Op.or]: ['pending', 'process']
+      }
+    }
+  })
+}
