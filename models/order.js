@@ -18,6 +18,10 @@ export default sequelize.define('orders', {
     unique: true,
     allowNull: false
   },
+  user_id: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   fullname: {
     type: DataTypes.STRING,
     allowNull: false
