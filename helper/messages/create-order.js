@@ -11,7 +11,7 @@ export default async (userId, value, channel) => {
   messages += `Fullname      : ${fullname}\n`
   messages += `Phone Number  : ${phone}\n`
   messages += `Property Type : ${type}\n`
-  messages += `Address        : ${address}\n\n`
+  messages += `Address       : ${address}\n\n`
   messages += `Notes :\n${notes}\n`
 
   return channel.send(codeBlock(messages) + '\n' + userMention(userId))
