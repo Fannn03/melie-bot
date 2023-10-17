@@ -1,15 +1,38 @@
 import { ChannelType, EmbedBuilder, PermissionFlagsBits, channelMention } from 'discord.js'
 import 'dotenv/config'
 import createOrderMessage from '../../../helper/messages/create-order.js'
+import { getService } from '../../../repositories/service.js'
+import { countOrder, createOrder } from '../../../repositories/order.js'
 
 export default async (interaction) => {
-  const channelName = interaction.fields.getTextInputValue('fullname')
+  const fullname = interaction.fields.getTextInputValue('fullname')
+  const phone = interaction.fields.getTextInputValue('phone')
+  const address = interaction.fields.getTextInputValue('address')
+  const notes = interaction.fields.getTextInputValue('notes')
 
   try {
+    const service = await getService('builder')
+
+    // Check if user already has 3 pending or unfinished order
+    const validateOrder = await countOrder(interaction.user.id)
+    if(validateOrder.count > 3) throw new Error("You've already 3 pending or process order that hasn't complete")
+
     const channel = await interaction.guild.channels.create({
-      name: `❗👷${channelName}`,
+      name: `❗👷${fullname}`,
       type: ChannelType.GuildText,
     })
+
+    const request = {
+      serviceId: service.dataValues.id,
+      channelId: channel.id,
+      userId: interaction.user.id,
+      fullname: fullname,
+      phone: phone,
+      address: address,
+      notes: notes
+    }
+
+    await createOrder(request) // insert data to sql
 
     channel.setParent(process.env.CHANNEL_ORDER)
     // assign permission member after move channel into category
@@ -48,7 +71,8 @@ export default async (interaction) => {
           .setColor("Red")
           .setTitle("Order Failed")
           .setDescription(err.message)
-      ]
+      ],
+      ephemeral: true
     })
 
     return setTimeout(async () => {

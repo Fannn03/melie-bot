@@ -22,6 +22,17 @@ const phoneInput = () => {
     .setMaxLength(10)
 }
 
+const typeInput = () => {
+  return new TextInputBuilder()
+    .setCustomId('type')
+    .setLabel('Property Type')
+    .setPlaceholder('House 3 room')
+    .setStyle(TextInputStyle.Short)
+    .setRequired(true)
+    .setMinLength(4)
+    .setMaxLength(100)
+}
+
 const addressInput = () => {
   return new TextInputBuilder()
     .setCustomId('address')
@@ -52,6 +63,10 @@ export default () => {
   const phone = new ActionRowBuilder()
     .addComponents(phoneInput())
   buttons.phone = phone
+
+  const type = new ActionRowBuilder()
+    .addComponents(typeInput())
+  buttons.type = type
 
   const address = new ActionRowBuilder()
     .addComponents(addressInput())
