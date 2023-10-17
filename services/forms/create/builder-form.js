@@ -4,7 +4,7 @@ import { getService } from '../../../repositories/service.js'
 
 export default async (interaction) => {
   let modal = new ModalBuilder()
-    .setCustomId('builder-form')
+    .setCustomId('builder-order')
     .setTitle('Complete Builder Form')
 
   const validateService = await getService(interaction.customId)
@@ -24,7 +24,7 @@ export default async (interaction) => {
   }
   
   let buttons = builderForm()
-  modal.addComponents(buttons.fullname, buttons.phone, buttons.address, buttons.notes)
+  modal.addComponents(buttons.fullname, buttons.phone, buttons.type, buttons.address, buttons.notes)
 
   return await interaction.showModal(modal)
 }

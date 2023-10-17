@@ -5,7 +5,7 @@ const service = model.service
 export const createService = async (name) => {
   try {
     return await service.create({
-      name: name
+      name: name.toLowerCase()
     })
   } catch (err) {
     throw err
@@ -30,7 +30,7 @@ export const updateService = async (id, status) => {
       id:id
     }
   })
-  if(!data) throw new Error("data service not found")
+  if(!data) throw new Error("Data service not found")
 
   await data.update({
     is_ready: status

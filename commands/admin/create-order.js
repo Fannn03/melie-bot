@@ -1,6 +1,6 @@
 import { EmbedBuilder } from "discord.js";
 import permissionMessage from "../../helper/permission-message.js"
-import createOrderPage from "../../services/orders/create-order-page.js";
+import createFormPage from "../../services/forms/create-form-page.js";
 
 export default {
   name: 'createorder',
@@ -12,7 +12,7 @@ export default {
     }
 
     try {
-      await createOrderPage(message)
+      await createFormPage(message)
       await message.reply('success create order page')
     } catch (err) {
       message.reply({

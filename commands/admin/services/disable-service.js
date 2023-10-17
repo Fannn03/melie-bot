@@ -1,10 +1,11 @@
 import { EmbedBuilder } from "discord.js";
 import disableService from "../../../services/services/disable-service.js";
+import permissionMessage from "../../../helper/permission-message.js";
 
 export default {
   name: 'disableservice',
   aliases: ['ds'],
-  permissions: ['Chief Executive Officer', 'Moderator'],
+  permissions: ['Chief Executive Officer', 'Moderator', 'Head of Division'],
   execute: async function (client, message, args) {
     if(!message.member.roles.cache.some(role => this.permissions.includes(role.name))) {
       return permissionMessage(message, this.permissions);
