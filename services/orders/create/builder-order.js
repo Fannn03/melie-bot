@@ -37,6 +37,8 @@ export default async (interaction) => {
     await createOrder(request) // insert data to sql
 
     channel.setParent(process.env.CHANNEL_ORDER)
+    // Get @everyone role id
+    const everyone = interaction.guild.roles.cache.find(role => role.id == interaction.guild.id)
     // assign permission member after move channel into category
     await interaction.guild.channels.edit(channel.id, {
       permissionOverwrites: [
@@ -46,6 +48,13 @@ export default async (interaction) => {
             PermissionFlagsBits.ViewChannel,
             PermissionFlagsBits.SendMessages,
             PermissionFlagsBits.AttachFiles
+          ],
+        },
+        {
+          id: everyone.id,
+          deny: [
+            PermissionFlagsBits.ViewChannel,
+            PermissionFlagsBits.SendMessages
           ]
         }
       ]
