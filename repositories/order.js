@@ -19,6 +19,14 @@ export const createOrder = async (request) => {
   }
 }
 
+export const getOrder = async (channelId) => {
+  return await order.findOne({
+    where: {
+      channel_id: channelId
+    }
+  })
+}
+
 export const countOrder = async (id) => {
   return await order.findAndCountAll({
     where: {
