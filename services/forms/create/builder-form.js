@@ -24,7 +24,7 @@ export default async (interaction) => {
   }
   
   let buttons = builderForm()
-  modal.addComponents(buttons.fullname, buttons.phone, buttons.address, buttons.notes)
+  modal.addComponents(buttons.fullname, buttons.phone, buttons.type, buttons.address, buttons.notes)
 
   return await interaction.showModal(modal)
 }
