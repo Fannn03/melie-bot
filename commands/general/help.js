@@ -46,7 +46,7 @@ export default {
         embeds: [
           new EmbedBuilder()
             .setColor("Red")
-            .setDescription(`Cannot found command name with value **${args[0]}**`)
+            .setDescription(`Cannot find command name with value **${args[0]}**`)
         ]
       })
     }
