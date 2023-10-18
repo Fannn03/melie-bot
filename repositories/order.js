@@ -49,3 +49,15 @@ export const countOrderAll = async () => {
     }
   })
 }
+
+export const updateOrder = async (request, channelId) => {
+  try {
+    await order.update(request, {
+      where: {
+        channel_id: channelId
+      }
+    })
+  } catch (err) {
+    throw err
+  }
+}

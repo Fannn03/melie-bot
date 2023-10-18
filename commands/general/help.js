@@ -18,7 +18,7 @@ export default {
     ${inlineCode('createservice')}, ${inlineCode('listservice')}, ${inlineCode('enableservice')}, ${inlineCode('disableservice')}
     
     **Orders**
-    ${inlineCode('takeorder')}
+    ${inlineCode('takeorder')}, ${inlineCode('orderstatus')}
     `
 
     return message.reply({
