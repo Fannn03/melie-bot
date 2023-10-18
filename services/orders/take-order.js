@@ -1,4 +1,4 @@
-import { getOrder } from "../../repositories/order.js"
+import { getOrder, updateOrder } from "../../repositories/order.js"
 import { createTakeOrder } from "../../repositories/take-order.js"
 import takeOrderMessage from "../../helper/messages/take-order.js"
 import { userMention } from "discord.js"
@@ -18,6 +18,11 @@ export default async (client, message, args) => {
 
   try {
     await createTakeOrder(request)
+    await updateOrder({
+      status: 'process'
+    }, getChannelOrder.dataValues.channel_id)
+
+    message.guild.channels.cache.find(channel => channel.id == message.channelId).setName("⌛👷" + getChannelOrder.dataValues.fullname)
 
     await message.reply(takeOrderMessage(getChannelOrder.dataValues.user_id, message.author.id, request.price))
   } catch (err) {
