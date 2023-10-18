@@ -4,6 +4,7 @@ import disableService from "../commands/admin/services/disable-service.js"
 import enableService from "../commands/admin/services/enable-service.js"
 import listService from "../commands/admin/services/list-service.js"
 import help from '../commands/general/help.js'
+import orderStatus from "../commands/general/orders/order-status.js"
 import takeOrder from "../commands/general/orders/take-order.js"
 
 export default (client) => {
@@ -17,6 +18,7 @@ export default (client) => {
   commands.push(disableService)
 
   commands.push(takeOrder)
+  commands.push(orderStatus)
 
   return client.commands = commands
 }
