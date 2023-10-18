@@ -5,6 +5,8 @@ import createFormPage from "../../services/forms/create-form-page.js";
 export default {
   name: 'createorder',
   aliases: ['co'],
+  params: [],
+  description: "Create order form that used for client who want to request available services",
   permissions: ['Chief Executive Officer', 'Moderator'],
   execute: async function (client, message, args) {
     if(!message.member.roles.cache.some(role => this.permissions.includes(role.name))) {

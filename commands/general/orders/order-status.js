@@ -5,6 +5,8 @@ import orderStatus from "../../../services/orders/order-status.js";
 export default {
   name: 'orderstatus',
   aliases: ['os'],
+  params: [],
+  description: "Display status order in specific channel",
   permissions: [
     'Chief Executive Officer',
     'Chief Operating Officer',
