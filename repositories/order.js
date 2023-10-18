@@ -2,6 +2,7 @@ import { Op } from 'sequelize'
 import model from '../models/model.js'
 
 const order = model.order
+const takeOrder = model.takeOrder
 
 export const createOrder = async (request) => {
   try {
@@ -19,10 +20,29 @@ export const createOrder = async (request) => {
   }
 }
 
+export const getOrder = async (channelId) => {
+  return await order.findOne({
+    where: {
+      channel_id: channelId
+    },
+    include: takeOrder
+  })
+}
+
 export const countOrder = async (id) => {
   return await order.findAndCountAll({
     where: {
       user_id: id,
+      status: {
+        [Op.or]: ['pending', 'process']
+      }
+    }
+  })
+}
+
+export const countOrderAll = async () => {
+  return await order.findAndCountAll({
+    where: {
       status: {
         [Op.or]: ['pending', 'process']
       }

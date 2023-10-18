@@ -16,6 +16,9 @@ export default {
     
     **Services**
     ${inlineCode('createservice')}, ${inlineCode('listservice')}, ${inlineCode('enableservice')}, ${inlineCode('disableservice')}
+    
+    **Orders**
+    ${inlineCode('takeorder')}
     `
 
     return message.reply({
