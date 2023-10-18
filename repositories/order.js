@@ -2,6 +2,7 @@ import { Op } from 'sequelize'
 import model from '../models/model.js'
 
 const order = model.order
+const takeOrder = model.takeOrder
 
 export const createOrder = async (request) => {
   try {
@@ -23,7 +24,8 @@ export const getOrder = async (channelId) => {
   return await order.findOne({
     where: {
       channel_id: channelId
-    }
+    },
+    include: takeOrder
   })
 }
 
