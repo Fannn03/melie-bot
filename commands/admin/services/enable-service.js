@@ -5,6 +5,8 @@ import enableService from "../../../services/services/enable-service.js";
 export default {
   name: 'enableservice',
   aliases: ['es'],
+  params: ["service id"],
+  description: "Enable current in-activate service",
   permissions: ['Chief Executive Officer', 'Moderator', 'Head of Division'],
   execute: async function(client, message, args) {
     if(!message.member.roles.cache.some(role => this.permissions.includes(role.name))) {

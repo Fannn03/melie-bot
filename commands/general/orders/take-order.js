@@ -6,6 +6,8 @@ import takeOrder from "../../../services/orders/take-order.js";
 export default {
   name: 'takeorder',
   aliases: ['to'],
+  params: ["price"],
+  description: "Take available request order from client. use this command in **specified channel order**, and order status must be **pending**",
   permissions: [
     'Chief Executive Officer',
     'Chief Operating Officer',

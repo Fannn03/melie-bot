@@ -6,6 +6,8 @@ import createService from "../../../services/services/create-service.js";
 export default {
   name: 'createservice',
   aliases: ['cs'],
+  params: ["service name"],
+  description: 'Create new service that used for client order',
   permissions: ['Chief Executive Officer', 'Moderator', 'Head of Division'],
   execute: async function (client, message, args) {
     if(!message.member.roles.cache.some(role => this.permissions.includes(role.name))) {
