@@ -1,6 +1,7 @@
 import { ActivityType } from "discord.js"
 import { countOrderAll, getOrder, updateOrder } from "../../repositories/order.js"
 import completeOrderMessage from "../../helper/messages/complete-order.js"
+import ratingButton from "../../core/buttons/rating-button.js"
 
 export default async (client, message, args) => {
   // validate if command has been executed in order channel
@@ -24,9 +25,11 @@ export default async (client, message, args) => {
     })
 
     const messageContent = completeOrderMessage(getChannelOrder.dataValues.user_id, message.author.id, getChannelOrder, message)
+
     await message.reply({
       content: messageContent.content,
-      embeds: [messageContent.embed]
+      embeds: [messageContent.embed],
+      components: [ratingButton()]
     })
   } catch (err) {
     throw err
