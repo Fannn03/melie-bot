@@ -1,4 +1,5 @@
-import { getOrder, updateOrder } from "../../repositories/order.js"
+import { ActivityType } from "discord.js"
+import { countOrderAll, getOrder, updateOrder } from "../../repositories/order.js"
 import completeOrderMessage from "../../helper/messages/complete-order.js"
 
 export default async (client, message, args) => {
@@ -15,6 +16,13 @@ export default async (client, message, args) => {
 
     message.guild.channels.cache.find(channel => channel.id == message.channelId).setName("✅👷" + getChannelOrder.dataValues.fullname)
     
+    const updateStatusOrder = await countOrderAll()
+    message.client.user.setActivity({
+      name: `${updateStatusOrder.count} orders`,
+      state: 'online',
+      type: ActivityType.Watching
+    })
+
     const messageContent = completeOrderMessage(getChannelOrder.dataValues.user_id, message.author.id, getChannelOrder, message)
     await message.reply({
       content: messageContent.content,
