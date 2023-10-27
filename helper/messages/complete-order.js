@@ -7,7 +7,7 @@ export default (clientId, staffId, order, message) => {
   let messages = ''
 
   messages += `Halo ${userMention(clientId)}, `
-  messages += `${userMention(staffId)} telah menyelesaikan orderan mu. Terima kasih telah mempercayakan layanan kami.\n`
+  messages += `${userMention(staffId)} telah menyelesaikan orderan mu. Terima kasih telah mempercayakan layanan kami.\nSilahkan untuk memberikan feedback rating dengan menekan tombol di bawah.`
 
   let embed = new EmbedBuilder()
     .setColor("Random")
