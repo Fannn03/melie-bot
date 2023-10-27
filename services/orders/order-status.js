@@ -1,5 +1,8 @@
 import { EmbedBuilder, codeBlock, userMention } from "discord.js"
+import moment from 'moment'
 import { getOrder } from "../../repositories/order.js"
+
+moment.locale('id');
 
 export default async (client, message, args) => {
   const getChannelOrder = await getOrder(message.channelId)
@@ -11,11 +14,12 @@ export default async (client, message, args) => {
   messages += `**Status :** ${getChannelOrder.dataValues.status}\n`
   messages += `**Phone :** ${getChannelOrder.dataValues.phone}\n`
   messages += `**Address :** ${getChannelOrder.dataValues.address}\n`
+  messages += `**Created at :** ${moment(getChannelOrder.dataValues.createdAt).format('dddd, Do MMMM YYYY | \`H:mm\`')}\n`
 
   if(getChannelOrder.order_take && getChannelOrder.order_take.dataValues.user_id) {
-    messages += `**Taken by :** ${userMention(getChannelOrder.order_take.dataValues.user_id)}\n`
+    messages += `**Taken by :** ${userMention(getChannelOrder.order_take.dataValues.user_id)}\n\n`
   }else {
-    messages += "**Taken by :** -\n"
+    messages += "**Taken by :** -\n\n"
   }
 
   if(getChannelOrder.dataValues.notes !== " ") {
